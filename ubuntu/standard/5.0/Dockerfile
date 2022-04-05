@@ -277,7 +277,7 @@ RUN set -ex \
 #****************      PHP     ****************************************************
 ENV PHP_73_VERSION="7.3.25"
 ENV PHP_74_VERSION="7.4.13"
-ENV PHP_80_VERSION="8.0.0"
+ENV PHP_80_VERSION="8.0.16"
 
 RUN curl -L https://raw.githubusercontent.com/phpenv/phpenv-installer/master/bin/phpenv-installer | bash
 ENV PATH="/root/.phpenv/shims:/root/.phpenv/bin:$PATH"
@@ -332,7 +332,7 @@ ARG GRADLE_DOWNLOADS_SHA256="abc10bcedb58806e8654210f96031db541bcd2d6fc3161e81cb
 ARG SBT_DOWNLOAD_SHA256="60286bf1b875b31e2955f8a699888cd2612e9afd94d03cde0a2e71efd7492ffc" \
 ENV LOG4J_UNSAFE_VERSIONS="2.11.1 1.2.8"
 
-ARG MAVEN_CONFIG_HOME="/root/.m2" 
+ARG MAVEN_CONFIG_HOME="/root/.m2"
 
 ENV JAVA_HOME="$JAVA_11_HOME" \
     JDK_HOME="$JDK_11_HOME" \
@@ -355,7 +355,7 @@ RUN set -ex \
     && apt-get update \
     && apt-get install -y -qq --force-yes libc6-i386 \
        lib32stdc++6 lib32gcc1 lib32ncurses6 \
-       lib32z1 libqt5widgets5 
+       lib32z1 libqt5widgets5
 
 RUN set -ex \
     # Install Corretto 11
@@ -372,7 +372,7 @@ RUN set -ex \
     && echo "$ANT_DOWNLOAD_SHA512 /var/tmp/apache-ant-$ANT_VERSION-bin.tar.gz" | sha512sum -c - \
     && tar -xzf /var/tmp/apache-ant-$ANT_VERSION-bin.tar.gz -C /opt \
     && rm /var/tmp/apache-ant-$ANT_VERSION-bin.tar.gz \
-    && update-alternatives --install /usr/bin/ant ant /opt/apache-ant-$ANT_VERSION/bin/ant 10000 
+    && update-alternatives --install /usr/bin/ant ant /opt/apache-ant-$ANT_VERSION/bin/ant 10000
 
 RUN set -ex \
     # Install Maven
